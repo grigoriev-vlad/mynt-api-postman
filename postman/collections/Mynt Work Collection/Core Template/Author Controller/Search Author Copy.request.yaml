@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{core-url}}/api/v1/authors/{id}"
+method: DELETE
+headers:
+  tenantId: dll
+  Content-Type: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam-token}}"
+order: 3000

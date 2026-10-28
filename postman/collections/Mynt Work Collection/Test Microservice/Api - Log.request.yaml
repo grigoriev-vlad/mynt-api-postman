@@ -1,0 +1,45 @@
+$kind: http-request
+url: https://eu-mynt-testing.kaas.nonprd.k8s.ah.technology/api/log
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Response is JSON and Content-Type includes application/json", function () {
+          pm.response.to.be.json;
+          pm.expect(pm.response.headers.get("Content-Type")).to.include("application/json");
+      });
+
+      pm.test("Body has required properties: level, timestamp, requestId", function () {
+          const jsonData = pm.response.json();
+          pm.expect(jsonData).to.have.property("level");
+          pm.expect(jsonData).to.have.property("timestamp");
+          pm.expect(jsonData).to.have.property("requestId");
+      });
+
+      pm.test("level is a string and one of [info, warn, error, debug]", function () {
+          const jsonData = pm.response.json();
+          pm.expect(jsonData.level).to.be.a("string");
+          pm.expect(jsonData.level).to.be.oneOf(["info", "warn", "error", "debug"]);
+      });
+
+      pm.test("timestamp matches ISO-8601-like pattern", function () {
+          const jsonData = pm.response.json();
+          const iso8601Pattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+Z$/;
+          pm.expect(jsonData.timestamp).to.match(iso8601Pattern);
+      });
+
+      pm.test("requestId is a non-empty string", function () {
+          const jsonData = pm.response.json();
+          pm.expect(jsonData.requestId).to.be.a("string");
+          pm.expect(jsonData.requestId.length).to.be.greaterThan(0);
+      });
+
+      pm.test("Response time is under 500ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(500);
+      });
+    language: text/javascript
+order: 3000

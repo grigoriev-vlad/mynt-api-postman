@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/current/unlock"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\t\r
+
+    \    \"lockKey\": \"{{lockKey}}\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 5000

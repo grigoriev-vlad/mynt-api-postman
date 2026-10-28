@@ -1,0 +1,59 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/ledgers/conversion/internal"
+method: POST
+headers:
+  - key: X-Tenant-Id
+    value: "{{X-Tenant-Id}}"
+  - key: X-Use-Mock
+    value: "true"
+    disabled: true
+body:
+  type: json
+  content: "{\r
+
+    \  \"memberIdentity\": {\r
+
+    \            \"memberId\": \"{{memberID}}\",\r
+
+    \            \"householdId\": \"{{householdID}}\"\r
+
+    \  },\r
+
+    \  \"conversion\": {\r
+
+    \    \"sourceLedgerId\": \"offlinePoints\",\r
+
+    \    \"targetLedgerId\": \"onlinePoints\",\r
+
+    \    \"burnAmount\": \"\",\r
+
+    \    \"conversionRate\": 1,\r
+
+    \    \"transactionType\": \"POINTS_MOVEMENT_ON_LINK\",\r
+
+    \    \"description\": [\r
+
+    \      {\r
+
+    \        \"language\": \"en\",\r
+
+    \        \"text\": \"20 points were exchanged for 2\"\r
+
+    \      }\r
+
+    \    ]\r
+
+    \  },\r
+
+    \  \"metadata\": {\r
+
+    \    \"additionalProp1\": {}\r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

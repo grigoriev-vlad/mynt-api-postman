@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{core-url}}/backoffice/groovy"
+method: POST
+headers:
+  tenantId: dll
+  Content-Type: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam-token}}"
+order: 5000

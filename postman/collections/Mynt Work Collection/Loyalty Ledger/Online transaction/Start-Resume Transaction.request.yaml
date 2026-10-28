@@ -1,0 +1,26 @@
+$kind: http-request
+name: Start/Resume Transaction
+url: "{{url-ledger-proxy}}/v1/online/transactions/start-or-resume"
+method: POST
+headers:
+  accept: application/json
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "memberId": "{{memberID}}",
+      "orderId": "5456456",
+      "lockKey": "{{lockKey}}",
+      "metadata": {
+        "storeId": "10",
+        "businessDate": "2026-07-31",
+        "startTransactionTimestamp": "2026-07-31T12:39:16.870Z"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 1000

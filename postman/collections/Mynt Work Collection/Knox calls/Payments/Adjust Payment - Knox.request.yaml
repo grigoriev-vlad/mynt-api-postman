@@ -1,0 +1,32 @@
+$kind: http-request
+url: "{{url-knox-service}}/v6/payments/457645645/adjust"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: "{{$guid}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "customerReference": "{{memberID}}",
+      "expiresAt": "2026-12-31T23:59:59Z",
+      "transactions": [
+        {
+          "amount": {
+            "value": "30.00"
+          },
+          "fundingSourceDetails": {
+            "source": "LEDGER",
+            "ledgerId": "camp-2026-eur-wallet",
+            "classification": "STORE_REDEMPTION"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 4000

@@ -1,0 +1,55 @@
+$kind: http-request
+url: "{{url-ledger-proxy}}/v1/ledger-definitions"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"ledgerId\": \"TEST_LD1028\",\r
+
+    \    \"ledgerName\": \"TEST_LD1028\",\r
+
+    \    \"ledgerType\": \"VALUE\",\r
+
+    \    \"assetCode\": \"102820262\",\r
+
+    \    \"startTimestamp\": \"2026-01-01T00:00:01.335Z\",\r
+
+    \    \"endTimestamp\": \"2026-12-31T00:00:01.335Z\",\r
+
+    \    \"allocationPolicy\": {\r
+
+    \        \"defaultExpirationPeriod\": \"P30D\"\r
+
+    \    },\r
+
+    \    \"cleanupPolicy\": {\r
+
+    \        \"dataRetentionPeriod\": \"P30D\",\r
+
+    \        \"deletionPolicy\": \"ZERO_BALANCE_ONLY\"\r
+
+    \    },\r
+
+    \    \"reservationPolicy\": {\r
+
+    \        \"maxReservationPeriod\": \"PT24H\",\r
+
+    \        \"captureGracePeriod\": \"PT12H\",\r
+
+    \        \"consumptionPolicy\": \"FEFO\"\r
+
+    \    },\r
+
+    \    \"resetPolicy\": null,\r
+
+    \    \"metadata\": {}\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

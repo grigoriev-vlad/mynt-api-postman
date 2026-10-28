@@ -1,0 +1,47 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/ledgers/allocations"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: 123e4567-e89b-12d3-a456-426614174000
+body:
+  type: text
+  content: "{\r
+
+    \    \"customerReference\": \"{{memberID}}\",\r
+
+    \    \"description\": \"Earning allocation\",\r
+
+    \    \"externalReference\": null,\r
+
+    \    \"classification\": \"CUSTOMER_CARE_CORRECTION\",\r
+
+    \    \"metadata\": {\r
+
+    \    },\r
+
+    \    \"allocations\": [\r
+
+    \        {\r
+
+    \            \"ledgerId\": \"REWARDS\",\r
+
+    \            \"assetCode\": null,\r
+
+    \            \"amount\": 10,\r
+
+    \            \"effectiveAt\": \"2026-10-09T00:05:00Z\",\r
+
+    \            \"expiresAt\": \"2026-10-15T00:05:00Z\"\r
+
+    \        }\r
+
+    \    ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 11000

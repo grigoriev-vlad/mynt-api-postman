@@ -1,0 +1,7 @@
+workspace:
+  id: b2406292-c379-4c85-aede-15f749f262bf
+cloudResources:
+  collections:
+    ../postman/collections/Mynt Work Collection: 9953534-d34845aa-3e6b-4074-b9a8-347e8bd3e60d
+  environments:
+    ../postman/environments/Mynt.environment.yaml: 9953534-f7c750ef-e6e9-4881-8ee3-e04686453445

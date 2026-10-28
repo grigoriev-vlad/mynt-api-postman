@@ -1,0 +1,65 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/ledgers/5EURCOUPON/earning"
+method: POST
+headers:
+  - key: X-Tenant-Id
+    value: "{{X-Tenant-Id}}"
+  - key: X-Use-Mock
+    value: "true"
+    disabled: true
+body:
+  type: json
+  content: "{\r
+
+    \  \"memberIdentity\": {\r
+
+    \            \"memberId\": \"{{memberID}}\",\r
+
+    \            \"householdId\": \"{{householdID}}\"\r
+
+    \  },\r
+
+    \  \"transactionType\": \"CUSTOMER_CARE_CORRECTION\",\r
+
+    \  \"amount\": 150,\r
+
+    \  \"effectiveAt\": \"2026-10-09T02:00:00.000+03:00\",\r
+
+    \  \"expiresAt\": \"2026-12-31T00:00:00.000+03:00\",\r
+
+    \    /*\"description\":    [\r
+
+    \  {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"20 points were exchanged for 2 EN\"\r
+
+    \    },\r
+
+    \        {\r
+
+    \      \"language\": \"fr\",\r
+
+    \      \"text\": \"20 points were exchanged for 2 FR\"\r
+
+    \    },\r
+
+    \            {\r
+
+    \      \"language\": \"nl\",\r
+
+    \      \"text\": \"20 points were exchanged for 2 NL\"\r
+
+    \    }\r
+
+    \  ],*/\r
+
+    \    \"metadata\": null\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 6000

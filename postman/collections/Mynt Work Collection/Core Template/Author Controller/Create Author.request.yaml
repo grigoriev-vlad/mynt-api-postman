@@ -1,0 +1,22 @@
+$kind: http-request
+url: "{{core-url}}/api/v1/authors"
+method: POST
+headers:
+  tenantId: dll
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"firstName\": \"Lesia\",\r
+
+    \    \"lastName\": \"Ukrainka\",\r
+
+    \    \"middleName\": \"-\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam-token}}"
+order: 1000

@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{url-programs}}/v1/stamps-campaigns/11/status"
+method: PATCH
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r\n  \"status\": \"DRAFT\"\r\n}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 5000

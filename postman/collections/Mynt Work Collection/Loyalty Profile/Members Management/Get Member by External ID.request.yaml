@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/by-external-id/DPL/{{externalID}}?additionalAttributes=effectiveClassifiers,attributes,cards"
+method: GET
+headers:
+  tenantId: "{{X-Tenant-Id}}"
+queryParams:
+  additionalAttributes: effectiveClassifiers,attributes,cards
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

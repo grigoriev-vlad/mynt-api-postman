@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/current/households/leave"
+method: POST
+headers:
+  accept: application/json
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

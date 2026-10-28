@@ -1,0 +1,101 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/rewards"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"5eurvouchertest\",\r
+
+    \  \"name\": \"5 EUR Voucher\",\r
+
+    \  \"rewardType\": \"COUPON\",\r
+
+    \  \"triggerType\": \"USER_ACTION\",\r
+
+    \  \"enabled\": true,\r
+
+    \  \"startTimestamp\": \"2026-01-01T00:00:00.000+03:00\",\r
+
+    \  \"endTimestamp\": \"2026-12-31T00:00:00.000+03:00\",\r
+
+    \  \"description\": [\r
+
+    \    {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"500 points for 5 EUR voucher\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"gr\",\r
+
+    \      \"text\": \"500 points pour un bon d'achat de 5 €\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"nl\",\r
+
+    \      \"text\": \"500 punten voor een waardebon van 5 euro\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"assignmentType\": \"MEMBER\",\r
+
+    \  \"transactionType\": \"COUPON\",\r
+
+    \  \"achievementMessageTemplate\": [\r
+
+    \    {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"500 points for 5 EUR voucher\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"fr\",\r
+
+    \      \"text\": \"500 points pour un bon d'achat de 5 €\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"gr\",\r
+
+    \      \"text\": \"500 punten voor een waardebon van 5 euro\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"requiresAssignment\": false,\r
+
+    \  \"timesToGet\": 1000,\r
+
+    \  \"timesToGetPeriod\": \"DAILY\",\r
+
+    \  \"propagateAchievement\": true,\r
+
+    \  \"achievementTtl\": 1,\r
+
+    \  \"couponTypeId\": \"6\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 8000

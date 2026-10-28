@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{url-programs}}/v1/members/{{memberID}}/stamps-campaigns/{{CampaignID}}/opt-out"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+order: 6000

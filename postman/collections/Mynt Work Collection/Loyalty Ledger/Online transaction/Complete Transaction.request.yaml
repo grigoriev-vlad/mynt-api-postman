@@ -1,0 +1,33 @@
+$kind: http-request
+url: "{{url-ledger-proxy}}/v1/online/transactions/complete"
+method: POST
+headers:
+  accept: "*/*"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "memberId": "{{memberID}}",
+      "orderId": "123345",
+      "lockKey": "{{lockKey}}",
+      "metadata": {
+        "storeId": "1244443",
+        "businessDate": "2026-10-09",
+        "startTransactionTimestamp": "2026-10-09T13:07:47.386Z"
+      },
+      "ledgerUpdates":
+      [
+        {
+          "type": "VALUE",
+          "code": "5EURCOUPON",
+          "delta": 150
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

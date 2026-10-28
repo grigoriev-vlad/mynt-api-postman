@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{url-knox-service}}/v6/payments/457645645/cancel"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: "{{$guid}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "customerReference": "{{memberID}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 3000

@@ -1,0 +1,11 @@
+$kind: http-request
+name: Ledger conversion for internal purposes
+url: "{{url-reward-exchange}}/v1/ledgers/conversion/options"
+method: GET
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 5000

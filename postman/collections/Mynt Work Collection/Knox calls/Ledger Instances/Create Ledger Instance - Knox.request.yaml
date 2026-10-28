@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/ledgers/camp-summer-2026"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: "{{$guid}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "customerReference": "{{memberID}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 3000

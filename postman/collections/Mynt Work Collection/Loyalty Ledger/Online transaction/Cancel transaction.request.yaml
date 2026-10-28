@@ -1,0 +1,27 @@
+$kind: http-request
+url: "{{url-ledger-proxy}}/v1/online/transactions/cancel"
+method: POST
+headers:
+  - key: accept
+    value: "*/*"
+  - key: X-Tenant-Id
+    value: "{{X-Tenant-Id}}"
+  - key: Content-Type
+    value: application/json
+  - key: X-Use-Mock
+    value: "true"
+    disabled: true
+body:
+  type: json
+  content: |-
+    {
+      "memberId": "{{memberID}}",
+      "orderId": "125",
+      "reservationId": "101",
+      "lockKey": "{{lockKey}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

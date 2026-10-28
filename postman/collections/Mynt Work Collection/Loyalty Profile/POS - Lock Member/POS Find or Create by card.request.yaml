@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/find-or-create-by-card"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\t\r
+
+    \    \"cardNumber\": \"0450980001380\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

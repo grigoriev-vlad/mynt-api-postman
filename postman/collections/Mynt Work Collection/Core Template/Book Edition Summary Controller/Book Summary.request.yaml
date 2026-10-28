@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{core-url}}/api/v1/books/summary?bookTitle=The Great Gatsby"
+method: GET
+headers:
+  tenantId: dll
+  Content-Type: application/json
+queryParams:
+  bookTitle: The Great Gatsby
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam-token}}"
+order: 1000

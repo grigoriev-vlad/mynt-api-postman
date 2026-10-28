@@ -1,0 +1,55 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/ledgers/exchanges"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: 123e4567-e89b-12d3-a456-426614174000
+body:
+  type: text
+  content: "{\r
+
+    \  \"customerReference\": \"{{memberID}}\",\r
+
+    \  \"source\": {\r
+
+    \    \"ledgerId\": \"wallet-bonus-points\",\r
+
+    \    \"assetCode\": \"POINT\",\r
+
+    \    \"amount\": \"490\"\r
+
+    \  },\r
+
+    \  \"target\": {\r
+
+    \    \"ledgerId\": \"wallet-eur\",\r
+
+    \    \"assetCode\": \"EUR\",\r
+
+    \    \"amount\": \"52\",\r
+
+    \    \"effectiveAt\": null,\r
+
+    \    \"expiresAt\": \"2026-03-31T23:59:59Z\"\r
+
+    \  },\r
+
+    \  \"externalReference\": \"bonus-exchange-12345\",\r
+
+    \  \"classification\": \"POINTS_TO_EUR_EXCHANGE\",\r
+
+    \  \"description\": \"Exchange 490 bonus points for 52 EUR\",\r
+
+    \  \"metadata\": {\r
+
+    \    \"source\": \"payments\"\r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 12000

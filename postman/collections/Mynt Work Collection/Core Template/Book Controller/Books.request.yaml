@@ -1,0 +1,36 @@
+$kind: http-request
+url: "{{core-url}}/api/v1/books"
+method: POST
+headers:
+  tenantId: dll
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"test2test1\",\r
+
+    \  \"authorsIds\": [\r
+
+    \    1\r
+
+    \  ],\r
+
+    \  \"edition\": {\r
+
+    \    \"isbn\": \"123456722890\",\r
+
+    \    \"editionNumber\": 2,\r
+
+    \    \"publishingDate\": \"2026-02-27\",\r
+
+    \    \"pages\": 10\r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam-token}}"
+order: 1000

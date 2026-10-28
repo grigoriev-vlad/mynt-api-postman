@@ -1,0 +1,87 @@
+$kind: http-request
+url: "{{url-programs}}/v1/stamps-campaigns"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"TEST_updated_campaign\",\r
+
+    \  \"name\": \"Updated campaign\",\r
+
+    \r
+
+    \  \"requiresAllocation\": false,\r
+
+    \  \"requiresOptIn\": true,\r
+
+    \  \r
+
+    \  \"startTimestamp\": \"2026-09-01T00:00:00.000+03:00\",\r
+
+    \  \"endTimestamp\": \"2026-11-30T23:59:59.000+03:00\",  \r
+
+    \  \r
+
+    \  \"earnStartTimestamp\": \"2026-09-01T00:00:00.000+03:00\",\r
+
+    \  \"earnEndTimestamp\": \"2026-10-15T23:59:59.000+03:00\",\r
+
+    \  \r
+
+    \  \"redeemStartTimestamp\": \"2026-10-16T00:00:00.000+03:00\",\r
+
+    \  \"redeemEndTimestamp\": \"2026-11-30T23:59:59.000+03:00\",\r
+
+    \  \r
+
+    \  \"digitalLedgerId\": \"campaign1-online\",\r
+
+    \  \r
+
+    \  \"nonDigitalLedgerId\": \"campaign1-offline\",\r
+
+    \  \r
+
+    \  \"temporalLedgerId\": \"campaign1-temporal\",\r
+
+    \r
+
+    \  \"offersLedgerId\": \"test\",\r
+
+    \  \r
+
+    \  \"offerPool\": \"campaign1\",\r
+
+    \  \r
+
+    \  \"participationClassifierCode\": \"campaign1\",\r
+
+    \  \r
+
+    \  \"initialRewardCode\": \"campaign1-freeStamps\",\r
+
+    \  \r
+
+    \  \"isPointsConversionEnabled\": true,\r
+
+    \  \"pointsConversionRatio\": 1,\r
+
+    \  \r
+
+    \  \"isFreeStampsEnabled\": true,\r
+
+    \  \"freeStampsAmount\": 10,\r
+
+    \  \r
+
+    \  \"isStampsTransferEnabled\": true\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

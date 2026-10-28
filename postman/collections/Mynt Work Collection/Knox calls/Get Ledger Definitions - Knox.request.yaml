@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/admin/ledger-definitions"
+method: GET
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 9000

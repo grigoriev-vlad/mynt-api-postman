@@ -1,0 +1,33 @@
+$kind: http-request
+url: "{{url-jwt}}/v1/token/issue/raw"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"claims\": {\r
+
+    \    \"iss\": \"{{url-jwt}}/{{X-Tenant-Id}}\",\r
+
+    \    \"sub\": \"{{externalID}}\"\r
+
+    \  },\r
+
+    \  \"type\": \"access\"\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Issue token\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      var jsonData = pm.response.json();\r
+
+      pm.environment.set(\"ciam_token\", jsonData.token);"
+    language: text/javascript
+order: 1000

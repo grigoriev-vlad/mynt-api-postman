@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/cards/validate"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r\n  \"cardNumber\": \"\"\r\n}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 9000

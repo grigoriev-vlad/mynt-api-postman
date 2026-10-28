@@ -1,0 +1,39 @@
+name: Mynt
+values:
+  - key: X-Tenant-Id
+    value: ""
+  - key: ciam_token
+    value: ""
+  - key: azure_token
+    value: ""
+  - key: groovyScript
+    value: ""
+  - key: url-loyalty-profile
+    value: ""
+  - key: url-ledger-proxy
+    value: ""
+  - key: url-reward-exchange
+    value: ""
+  - key: url-programs
+    value: ""
+  - key: url-jwt
+    value: ""
+  - key: url-knox-service
+    value: ""
+  - key: memberID
+    value: ""
+  - key: householdID
+    value: ""
+  - key: externalID
+    value: ""
+  - key: cardID
+    value: ""
+  - key: lockKey
+    value: ""
+  - key: invitation
+    value: ""
+  - key: X-Sub-Merchant-Id
+    value: ""
+  - key: CampaignID
+    value: ""
+color: 180

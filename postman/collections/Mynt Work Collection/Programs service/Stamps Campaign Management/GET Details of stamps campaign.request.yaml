@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{url-programs}}/v1/stamps-campaigns/11"
+method: GET
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 1000

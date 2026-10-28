@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{url-knox-service}}/v6/payments/457645645/mutations/6c6e9f6a-1d2c-4e11-9a7f-2a4b3c0d8e12?customerReference={{memberID}}"
+method: GET
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+queryParams:
+  customerReference: "{{memberID}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 1000

@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{url-ledger-proxy}}/v1/ledger-definitions?ledgerType=&page=0&size=50"
+method: GET
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+queryParams:
+  ledgerType: ""
+  page: "0"
+  size: "50"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

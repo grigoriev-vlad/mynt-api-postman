@@ -1,0 +1,47 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/search"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"cardNumber\": \"string\",\r
+
+    \  \"memberId\": \"string\",\r
+
+    \  \"householdId\": \"string\",\r
+
+    \  \"searchByExternalSystem\": {\r
+
+    \    \"system\": \"dpl\",\r
+
+    \    \"id\": \"C26E1EA83D361A9499BE6F4E08D29B2FBBDD557D79C585788442E40DEFAC5AAB\"\r
+
+    \  },\r
+
+    \  \"searchByAttributes\": {\r
+
+    \    \"operation\": \"AND\",\r
+
+    \    \"attributes\": [\r
+
+    \      {\r
+
+    \        \"key\": \"MOBILE_PHONE_NUMBER\",\r
+
+    \        \"value\": \"306911234567\"\r
+
+    \      }\r
+
+    \    ]\r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 10000

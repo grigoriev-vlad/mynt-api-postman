@@ -1,0 +1,44 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/backoffice/groovy"
+method: POST
+headers:
+  Content-Type: application/json
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"commitMode\": true,\r
+
+    \  \"params\": {},\r
+
+    \  \"script\": \"{{groovyScript}}\",\r
+
+    \  \"timeoutMs\": 50000\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+scripts:
+  - type: afterResponse
+    code: pm.test('Status code is 200', function () { pm.response.to.have.status(200); });
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      const script = [
+        'import com.aholddelhaize.mynt.core.data.source.TenantContext',
+        'import com.aholddelhaize.loyalty.profile.household.jobs.invitationscleanup.InvitationCleanupTask',
+        '',
+        'def tenantId = TenantContext.getTenantId()',
+        'out.println("Running InvitationCleanupTask for tenant: ${tenantId}")',
+        '',
+        'def cleanupTask = ctx.getBean(InvitationCleanupTask)',
+        'cleanupTask.householdInvitationCleanupCronJobDll(tenantId)',
+        '',
+        'out.println("Done")',
+      ].join('\n');
+      pm.environment.set("groovyScript", JSON.stringify(script).slice(1, -1));
+    language: text/javascript
+order: 7000

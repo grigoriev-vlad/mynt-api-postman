@@ -1,0 +1,61 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/conversions/11"
+method: PUT
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"code\": \"TestConversion2\",\r
+
+    \    \"name\": \"TestConversion\",\r
+
+    \    \"enabled\": true,\r
+
+    \    \"sourceLedgerId\": \"points\",\r
+
+    \    \"targetLedgerId\": \"digitalWallet\",\r
+
+    \    \"transactionType\": \"VOUCHER_CONVERSION\",\r
+
+    \    \"transactionMessageTemplate\": [\r
+
+    \        {\r
+
+    \            \"language\": \"en\",\r
+
+    \            \"text\": \"TestConversion EN\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"language\": \"fr\",\r
+
+    \            \"text\": \"TestConversion NL\"\r
+
+    \        }\r
+
+    \    ],\r
+
+    \    \"rewardOnConversion\": \"digitalWallet\",\r
+
+    \    \"minValueToExchange\": 500.0,\r
+
+    \    \"maxValueToExchange\": 500000.0,\r
+
+    \    \"conversionType\": \"RATIO\",\r
+
+    \    \"conversionRate\": 0.001,\r
+
+    \    \"stepBurnAmount\": 500.0,\r
+
+    \    \"stepEarnAmount\": 5.0\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

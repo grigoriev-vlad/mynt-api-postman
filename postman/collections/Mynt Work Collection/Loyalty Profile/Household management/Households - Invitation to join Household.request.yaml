@@ -1,0 +1,102 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/current/households/invitations"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Create invitation - 200 OK\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      if (pm.response.code === 200) {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \r
+
+      \    // Values can sit at different nesting levels depending on endpoint, so search recursively.\r
+
+      \    function findValue(source, key) {\r
+
+      \        if (source === null || typeof source !== \"object\") return undefined;\r
+
+      \        if (Array.isArray(source)) {\r
+
+      \            for (const item of source) {\r
+
+      \                const found = findValue(item, key);\r
+
+      \                if (found !== undefined) return found;\r
+
+      \            }\r
+
+      \            return undefined;\r
+
+      \        }\r
+
+      \        if (Object.prototype.hasOwnProperty.call(source, key) && source[key] !== null) {\r
+
+      \            return source[key];\r
+
+      \        }\r
+
+      \        for (const nested of Object.values(source)) {\r
+
+      \            const found = findValue(nested, key);\r
+
+      \            if (found !== undefined) return found;\r
+
+      \        }\r
+
+      \        return undefined;\r
+
+      \    }\r
+
+      \r
+
+      \    const mappings = [\r
+
+      \        { responseKey: \"token\",         envVar: \"invitation\" }\r
+
+      \    ];\r
+
+      \r
+
+      \    mappings.forEach(function (m) {\r
+
+      \        const value = findValue(jsonData, m.responseKey);\r
+
+      \        if (value !== undefined) {\r
+
+      \            pm.environment.set(m.envVar, String(value));\r
+
+      \            console.log(m.envVar + \" = \" + value);\r
+
+      \        } else {\r
+
+      \            console.warn(\"Not found in response: \" + m.responseKey);\r
+
+      \        }\r
+
+      \    });\r
+
+      \r
+
+      \    pm.test(\"Environment variables saved\", function () {\r
+
+      \        pm.expect(pm.environment.get(\"memberID\")).to.not.be.undefined;\r
+
+      \    });\r
+
+      }"
+    language: text/javascript
+order: 2000

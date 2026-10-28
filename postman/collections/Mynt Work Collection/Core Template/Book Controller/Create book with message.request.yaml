@@ -1,0 +1,28 @@
+$kind: http-request
+url: "{{core-url}}/api/v1/books/with-message"
+method: POST
+headers:
+  accept: application/json
+  tenantId: dll
+  Content-Type: application/json
+  Authorization: ••••••
+body:
+  type: json
+  content: |-
+    {
+      "title": "A Great story of Mynt Project",
+      "authorsIds": [
+        2
+      ],
+      "edition": {
+        "isbn": "666",
+        "editionNumber": 200,
+        "publishingDate": "2026-03-06",
+        "pages": 999
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam-token}}"
+order: 2000

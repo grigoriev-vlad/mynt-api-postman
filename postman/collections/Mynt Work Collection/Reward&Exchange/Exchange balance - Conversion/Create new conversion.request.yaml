@@ -1,0 +1,61 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/conversions"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"5EURVoucher_error\",\r
+
+    \  \"name\": \"5EURVoucher_error\",\r
+
+    \  \"enabled\": true,\r
+
+    \  \"sourceLedgerId\": \"points\",\r
+
+    \  \"targetLedgerId\": \"digitalWallet\",\r
+
+    \  \"transactionType\": \"BURN_ERROR\",\r
+
+    \  \"transactionMessageTemplate\": [\r
+
+    \    {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"5EURVoucher EN\"\r
+
+    \    },\r
+
+    \        {\r
+
+    \      \"language\": \"cz\",\r
+
+    \      \"text\": \"5EURVoucher CZ\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"rewardOnConversion\": null,\r
+
+    \  \"minValueToExchange\": 500,\r
+
+    \  \"maxValueToExchange\": 5000,\r
+
+    \  \"conversionType\": \"RATIO\",\r
+
+    \  \"conversionRate\": 0.001,\r
+
+    \  \"stepBurnAmount\": 500,\r
+
+    \  \"stepEarnAmount\": 5\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

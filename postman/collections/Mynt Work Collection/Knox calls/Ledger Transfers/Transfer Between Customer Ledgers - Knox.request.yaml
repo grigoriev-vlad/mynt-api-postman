@@ -1,0 +1,33 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/ledgers/transfers"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: "{{$guid}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "sourceCustomerReference": "{{memberID}}",
+      "targetCustomerReference": "cust_2002",
+      "transfers": [
+        {
+          "ledgerId": "wallet-bonus-points",
+          "assetCode": "POINT",
+          "amount": 25
+        }
+      ],
+      "externalReference": "gift_987",
+      "classification": "GIFTING",
+      "description": "Gift 25 bonus points to another customer account",
+      "metadata": {
+        "channel": "mobile-app"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 1000

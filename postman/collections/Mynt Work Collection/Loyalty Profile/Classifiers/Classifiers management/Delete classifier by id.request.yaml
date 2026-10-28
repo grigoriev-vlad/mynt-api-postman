@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/classifiers/12"
+method: DELETE
+headers:
+  accept: "*/*"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

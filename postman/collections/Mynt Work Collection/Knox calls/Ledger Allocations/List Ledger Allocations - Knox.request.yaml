@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/ledgers/camp-summer-2026/allocations?customerReference={{memberID}}"
+method: GET
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+queryParams:
+  customerReference: "{{memberID}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 1000

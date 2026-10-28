@@ -1,0 +1,37 @@
+$kind: http-request
+url: "{{url-ledger-proxy}}/v1/pos/transactions/complete"
+method: POST
+headers:
+  accept: "*/*"
+  Content-Type: application/json
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: |-
+    {
+      "cardNumber": "{{cardID}}",
+      "lockKey": "{{lockKey}}",
+      "metadata": {
+        "storeId": "33242",
+        "posId": "2324574384323",
+        "cashierId": "334544333442534",
+        "transactionId": "343534543",
+        "reservationId": "",
+        "orderId": "23345343",
+        "businessDate": "2026-10-09",
+        "startTransactionTimestamp": "2026-10-09T15:50:17.145Z"
+      },
+      "ledgerUpdates": [
+        {
+          "type": "VALUE",
+          "code": "5EURCOUPON",
+          "delta": 10
+        }  
+      ]
+
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

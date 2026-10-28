@@ -1,0 +1,135 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/rewards"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"REWARD_VALIDATION2\",\r
+
+    \  \"name\": \"REWARD_VALIDATION\",\r
+
+    \  \"rewardType\": \"BALANCE\",\r
+
+    \  \"triggerType\": \"AUTOMATIC\",\r
+
+    \  \"enabled\": true,\r
+
+    \  \"startTimestamp\": \"2026-01-01T00:00:00.000+03:00\",\r
+
+    \  \"endTimestamp\": \"2026-12-31T00:00:00.000+03:00\",\r
+
+    \  \"description\": [\r
+
+    \    {\r
+
+    \      \"language\": \"fr\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"nl\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    },\r
+
+    \        {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"assignmentType\": \"HOUSEHOLD\",\r
+
+    \  \"transactionType\": \"VALUE_REWARD\",\r
+
+    \  \"achievementMessageTemplate\": [\r
+
+    \    {\r
+
+    \      \"language\": \"fr\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"nl\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    },\r
+
+    \        {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"requiresAssignment\": false,\r
+
+    \  \"timesToGet\": 10,\r
+
+    \  \"timesToGetPeriod\": \"DAILY\",\r
+
+    \  \"propagateAchievement\": true,\r
+
+    \  \"achievementTtl\": 1,\r
+
+    \  \"ledgerId\": \"REWARDS\",\r
+
+    \  \"transactionMessageTemplate\": [\r
+
+    \    {\r
+
+    \      \"language\": \"fr\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"nl\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    },\r
+
+    \        {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"VALUE_REWARD\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"earnValue\": null,\r
+
+    \  \"earnValueLimit\": 1000,\r
+
+    \  \"pointsExpirationPeriod\": null\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

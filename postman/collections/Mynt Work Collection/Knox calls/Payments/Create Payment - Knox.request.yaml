@@ -1,0 +1,34 @@
+$kind: http-request
+url: "{{url-knox-service}}/v6/payments"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: "{{$guid}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "customerReference": "{{memberID}}",
+      "externalReference": "3299942",
+      "description": "AH Premium order 3299942",
+      "expiresAt": "2026-12-31T23:59:59Z",
+      "transactions": [
+        {
+          "amount": {
+            "value": "25.00"
+          },
+          "fundingSourceDetails": {
+            "source": "LEDGER",
+            "ledgerId": "camp-2026-eur-wallet",
+            "classification": "STORE_REDEMPTION"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 5000

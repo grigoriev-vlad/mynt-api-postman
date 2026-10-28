@@ -1,0 +1,44 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/members/rewards"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  X-Use-Mock: "true"
+body:
+  type: json
+  content: "{\r
+
+    \  \"memberIdentity\": {\r
+
+    \            \"memberId\": \"{{memberID}}\",\r
+
+    \            \"householdId\": \"{{householdID}}\"\r
+
+    \  },\r
+
+    \  \"rewardAchievement\": {\r
+
+    \    \"code\": \"electraPoints\",\r
+
+    \    \"earnedAmount\": null,\r
+
+    \    \"availableFrom\": \"2026-10-08T00:00:00.000+03:00\"\r
+
+    \    },\r
+
+    \  \"executionMode\": \"SYNC\",\r
+
+    \  \"metadata\": {\r
+
+    \    \"storeId\": \"12345\",\r
+
+    \    \"additionalProp1\": {}\r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

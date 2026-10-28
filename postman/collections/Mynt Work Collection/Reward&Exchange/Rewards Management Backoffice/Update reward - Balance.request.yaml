@@ -1,0 +1,135 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/rewards/36"
+method: PUT
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"code\": \"Updated_reward\",\r
+
+    \    \"name\": \"Electra charge points reward\",\r
+
+    \    \"rewardType\": \"BALANCE\",\r
+
+    \    \"triggerType\": \"USER_ACTION\",\r
+
+    \    \"enabled\": true,\r
+
+    \    \"startTimestamp\": \"2025-12-31T21:00:00Z\",\r
+
+    \    \"endTimestamp\": \"2026-12-30T21:00:00Z\",\r
+
+    \    \"description\": [\r
+
+    \        {\r
+
+    \            \"language\": \"sr\",\r
+
+    \            \"text\": \"20 points were exchanged for 2 kWs\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"language\": \"en\",\r
+
+    \            \"text\": \"20 points ont été échangés contre 2 kW\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"language\": \"rt\",\r
+
+    \            \"text\": \"20 punten werden ingewisseld voor 2 kW\"\r
+
+    \        }\r
+
+    \    ],\r
+
+    \    \"assignmentType\": \"HOUSEHOLD\",\r
+
+    \    \"transactionType\": \"ELECTRA_CHARGE\",\r
+
+    \    \"achievementMessageTemplate\": [\r
+
+    \        {\r
+
+    \            \"language\": \"en\",\r
+
+    \            \"text\": \"20 points were exchanged for 2 kWs\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"language\": \"sr\",\r
+
+    \            \"text\": \"20 punten werden ingewisseld voor 2 kW\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"language\": \"nl\",\r
+
+    \            \"text\": \"20 punten werden ingewisseld voor 2 kW\"\r
+
+    \        }\r
+
+    \    ],\r
+
+    \    \"requiresAssignment\": true,\r
+
+    \    \"timesToGet\": 1,\r
+
+    \    \"timesToGetPeriod\": \"DAILY\",\r
+
+    \    \"propagateAchievement\": true,\r
+
+    \    \"achievementTtl\": 1,\r
+
+    \    \"ledgerId\": \"points\",\r
+
+    \    \"transactionMessageTemplate\": [\r
+
+    \        {\r
+
+    \            \"language\": \"en\",\r
+
+    \            \"text\": \"20 points were exchanged for 2 kWs\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"language\": \"sr\",\r
+
+    \            \"text\": \"20 points ont été échangés contre 2 kW\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"language\": \"fr\",\r
+
+    \            \"text\": \"20 punten werden ingewisseld voor 2 kW\"\r
+
+    \        }\r
+
+    \    ],\r
+
+    \    \"earnValue\": null,\r
+
+    \    \"earnValueLimit\": 500,\r
+
+    \    \"pointsExpirationPeriod\": \"P365D\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 5000

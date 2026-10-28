@@ -1,0 +1,49 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/members/current/ledgers/PERSONAL_OFFER/free-offers"
+method: POST
+headers:
+  - key: X-Tenant-Id
+    value: "{{X-Tenant-Id}}"
+  - key: X-Use-Mock
+    value: "true"
+    disabled: true
+body:
+  type: json
+  content: "{\r
+
+    \  \"channel\": \"WEB\",\r
+
+    \  \"transactionType\": \"PERSONAL_OFFER_ACTIVATION\",\r
+
+    \  \"offers\": [\r
+
+    \    {\r
+
+    \      \"offerId\": \"20262026\",\r
+
+    \      \"offerAmount\": 5,\r
+
+    \      \"effectiveAt\": \"2026-09-09T00:00:00.000+03:00\",\r
+
+    \      \"expiresAt\": \"2026-12-30T00:00:00.000+03:00\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"metadata\": {\r
+
+    \    \"additionalProp1\": {\"test\":\"value\"},\r
+
+    \    \"orderId\": \"564564645\"\r
+
+    \r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 1000

@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/members/current/rewards"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"VALUE_REWARD\",\r
+
+    \  \"executionMode\": \"SYNC\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

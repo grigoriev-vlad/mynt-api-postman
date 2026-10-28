@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/rewards/rewardid"
+method: DELETE
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

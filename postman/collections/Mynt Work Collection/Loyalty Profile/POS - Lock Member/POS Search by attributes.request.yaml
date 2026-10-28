@@ -1,0 +1,37 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/search-by-attributes"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"operation\": \"AND\",\r
+
+    \  \"attributes\": [\r
+
+    \    {\r
+
+    \      \"key\": \"MOBILE_PHONE_NUMBER\",\r
+
+    \      \"value\": \"32346467003\"\r
+
+    \    },\r
+
+    \        {\r
+
+    \      \"key\": \"LANGUAGE\",\r
+
+    \      \"value\": \"EN\"\r
+
+    \    }\r
+
+    \  ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 6000

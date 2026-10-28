@@ -1,0 +1,52 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/members/current/ledgers/PAID_OFFERS/paid-offers"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  X-Use-Mock: "true"
+body:
+  type: json
+  content: "{\r
+
+    \  \"channel\": \"WEB\",\r
+
+    \  \"transactionType\": \"BURN_OFFER_ACTIVATION\",\r
+
+    \  \"exchangeType\": \"ACTIVATION\",\r
+
+    \  \"offerId\": \"092520266\",\r
+
+    \  \"offerAmount\": 1,\r
+
+    \  \"effectiveAt\": \"2026-10-05T00:00:00.000+03:00\",\r
+
+    \  \"expiresAt\": \"2026-10-30T00:00:00.000+03:00\",\r
+
+    \  \"balanceLedgerId\": \"PAID_OFFERS\",\r
+
+    \  \"balanceAmount\": 50,\r
+
+    \  \"description\": [\r
+
+    \    {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"20 points were exchanged for 2 Promotion_name\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"metadata\": {\r
+
+    \    \"additionalProp1\": \"\"\r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

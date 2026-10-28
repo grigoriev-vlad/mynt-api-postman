@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/current/classifiers"
+method: POST
+headers:
+  X-Tenant-ID: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"LOYALTY_PROFILE\",\r
+
+    \  \"value\": \"P3\",\r
+
+    \  \"startDate\": \"2026-01-01\",\r
+
+    \  \"endDate\": \"2026-08-01\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

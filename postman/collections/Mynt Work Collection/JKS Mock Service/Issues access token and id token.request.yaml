@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{url-jwt}}/v1/token/issue/template?opco={{X-Tenant-Id}}&env=qa1&format=ciam&decoded=true"
+method: GET
+queryParams:
+  opco: "{{X-Tenant-Id}}"
+  env: qa1
+  format: ciam
+  decoded: "true"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Issue token\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      var jsonData = pm.response.json();\r
+
+      pm.environment.set(\"ciam_token\", jsonData.access_token.jwt);"
+    language: text/javascript
+order: 2000

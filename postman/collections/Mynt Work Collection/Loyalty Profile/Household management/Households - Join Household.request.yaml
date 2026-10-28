@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/current/households/join"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"token\": \"{{invitation}}\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

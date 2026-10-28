@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/classifiers/3/2/members?page=0&size=20"
+method: GET
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+queryParams:
+  page: "0"
+  size: "20"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 7000

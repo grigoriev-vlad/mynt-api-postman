@@ -1,0 +1,28 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/members/current/ledgers/conversion"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  X-Use-Mock: "true"
+body:
+  type: json
+  content: "{\r
+
+    \  \"channel\": \"WEB\",\r
+
+    \  \"conversionId\": \"5EURVoucher\",\r
+
+    \  \"burnAmount\": 50,\r
+
+    \  \"metadata\": {\r
+
+    \    \"additionalProp1\": {}\r
+
+    \  }\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 3000

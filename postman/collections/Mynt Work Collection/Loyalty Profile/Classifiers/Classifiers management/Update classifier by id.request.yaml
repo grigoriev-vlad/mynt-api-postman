@@ -1,0 +1,40 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/classifiers/3/2/members?page=0&size=20"
+method: PUT
+headers:
+  accept: application/json
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  Content-Type: application/json
+queryParams:
+  page: "0"
+  size: "20"
+body:
+  type: json
+  content: |-
+    {
+      "code": "CHANNEL",
+      "name": "Channel",
+      "assignmentType": "MEMBER",
+      "defaultValue": {
+          "code": "ONLINE",
+          "name": "Online ",
+          "priority": 10
+      },
+      "possibleValues": [
+        {
+          "code": "ONLINE",
+          "name": "Online ",
+          "priority": 10
+        },
+            {
+          "code": "OFFLINE",
+          "name": "Offline ",
+          "priority": 24
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/members/current/households/split"
+method: POST
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "externalSystem": "DPL",
+      "externalId": "{{externalID}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 5000

@@ -1,0 +1,45 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/admin/ledger-definitions"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: "{{$guid}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ledgerId": "camp-summer-2026-eur",
+      "ledgerName": "Summer wallet campaign 2026",
+      "ledgerType": "VALUE",
+      "assetCode": "EUR",
+      "startDate": "2026-06-01T00:00:00Z",
+      "endDate": "2026-08-31T23:59:59Z",
+      "allocationPolicy": {
+        "defaultExpirationPeriod": null
+      },
+      "cleanupPolicy": {
+        "dataRetentionPeriod": "P90D",
+        "deletionPolicy": "ZERO_BALANCE_ONLY"
+      },
+      "reservationPolicy": {
+        "maxReservationPeriod": "P14D",
+        "captureGracePeriod": "P2D",
+        "consumptionPolicy": "FEFO"
+      },
+      "resetPolicy": {
+        "resetStrategy": "TOP_UP",
+        "resetFrequency": "WEEKLY",
+        "resetTargetAmount": 100
+      },
+      "metadata": {
+        "campaignCode": "SUMMER26",
+        "fundingSource": "marketing-budget"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 2000

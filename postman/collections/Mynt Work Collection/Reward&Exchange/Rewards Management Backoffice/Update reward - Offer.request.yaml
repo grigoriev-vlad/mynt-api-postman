@@ -1,0 +1,107 @@
+$kind: http-request
+url: "{{url-reward-exchange}}/v1/rewards/36"
+method: PUT
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"OfferActivationreward2Updated\",\r
+
+    \  \"name\": \"Offer Activation Reward\",\r
+
+    \  \"rewardType\": \"OFFER\",\r
+
+    \  \"triggerType\": \"AUTOMATIC\",\r
+
+    \  \"enabled\": true,\r
+
+    \  \"startTimestamp\": \"2026-01-01T00:00:00.000+03:00\",\r
+
+    \  \"endTimestamp\": \"2026-12-31T00:00:00.000+03:00\",\r
+
+    \  \"description\": [\r
+
+    \    {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"15 points for offer activation\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"15 points pour l'activation de l'offre\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"nl\",\r
+
+    \      \"text\": \"15 punten voor het activeren van de aanbieding\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"assignmentType\": \"MEMBER\",\r
+
+    \  \"transactionType\": \"OFFER\",\r
+
+    \  \"achievementMessageTemplate\": [\r
+
+    \    {\r
+
+    \      \"language\": \"en\",\r
+
+    \      \"text\": \"15 points for offer activation\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"fr\",\r
+
+    \      \"text\": \"15 points pour l'activation de l'offre\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"language\": \"gr\",\r
+
+    \      \"text\": \"15 punten voor het activeren van de aanbieding\"\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"requiresAssignment\": false,\r
+
+    \  \"timesToGet\": 10,\r
+
+    \  \"timesToGetPeriod\": \"DAILY\",\r
+
+    \  \"propagateAchievement\": true,\r
+
+    \  \"achievementTtl\": 2,\r
+
+    \  \"ledgerId\": \"offers\",\r
+
+    \  \"offerId\": 10242026,\r
+
+    \  \"activations\": null,\r
+
+    \  \"activationExpirationPeriod\": \"365\"  \r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 6000

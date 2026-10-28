@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{url-ledger-proxy}}/v1/ledger-definitions/5EURCOUPON"
+method: GET
+headers:
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 4000

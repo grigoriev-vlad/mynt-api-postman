@@ -1,0 +1,45 @@
+$kind: http-request
+url: "{{url-loyalty-profile}}/v1/classifiers"
+method: POST
+headers:
+  X-Tenant-ID: "{{X-Tenant-Id}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"code\": \"classifier_code\",\r
+
+    \  \"name\": \"Classifier test name\",\r
+
+    \  \"assignmentType\": \"MEMBER\",\r
+
+    \  \"defaultValue\": {\r
+
+    \          \"code\": \"test\",\r
+
+    \      \"name\": \"Test name\",\r
+
+    \      \"priority\": 1\r
+
+    \  },\r
+
+    \  \"possibleValues\": [\r
+
+    \    {\r
+
+    \      \"code\": \"test\",\r
+
+    \      \"name\": \"Test name\",\r
+
+    \      \"priority\": 1\r
+
+    \    }\r
+
+    \  ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{ciam_token}}"
+order: 2000

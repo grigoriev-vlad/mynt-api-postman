@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{url-knox-service}}/v2/ledgers/camp-summer-2026/reservations/6c6e9f6a-1d2c-4e11-9a7f-2a4b3c0d8e12:capture"
+method: POST
+headers:
+  X-Sub-Merchant-Id: "{{X-Sub-Merchant-Id}}"
+  X-Tenant-Id: "{{X-Tenant-Id}}"
+  idempotency-key: "{{$guid}}"
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "assetCode": "EUR",
+      "captureAmount": 15.0
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{azure_token}}"
+order: 1000
