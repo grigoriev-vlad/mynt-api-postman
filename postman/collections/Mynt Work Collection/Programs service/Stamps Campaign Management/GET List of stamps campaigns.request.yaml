@@ -4,63 +4,9 @@ method: GET
 headers:
   X-Tenant-Id: "{{X-Tenant-Id}}"
 queryParams:
-  - key: status
-    value: ""
-    $type: |-
-      {
-        "type": "",
-        "format": "",
-        "required": false,
-        "deprecated": false,
-        "default": "",
-        "enum": [],
-        "pattern": "",
-        "minLength": "",
-        "maxLength": "",
-        "minItems": "",
-        "maxItems": "",
-        "minimum": "",
-        "maximum": "",
-        "uniqueItems": false
-      }
-  - key: size
-    value: "0"
-    $type: |-
-      {
-        "type": "",
-        "format": "",
-        "required": false,
-        "deprecated": false,
-        "default": "",
-        "enum": [],
-        "pattern": "",
-        "minLength": "",
-        "maxLength": "",
-        "minItems": "",
-        "maxItems": "",
-        "minimum": "",
-        "maximum": "",
-        "uniqueItems": false
-      }
-  - key: page
-    value: "0"
-    $type: |-
-      {
-        "type": "",
-        "format": "",
-        "required": false,
-        "deprecated": false,
-        "default": "",
-        "enum": [],
-        "pattern": "",
-        "minLength": "",
-        "maxLength": "",
-        "minItems": "",
-        "maxItems": "",
-        "minimum": "",
-        "maximum": "",
-        "uniqueItems": false
-      }
+  status: ""
+  size: "0"
+  page: "0"
 auth:
   type: bearer
   credentials:
