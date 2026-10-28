@@ -1,39 +1,45 @@
 name: Mynt
 values:
   - key: X-Tenant-Id
-    value: ""
+    value: dll
   - key: ciam_token
-    value: ""
+    secret: true
   - key: azure_token
-    value: ""
+    secret: true
   - key: groovyScript
-    value: ""
+    value: ''
   - key: url-loyalty-profile
-    value: ""
+    value: 'https://mynt-loyalty-profile-ebt-cndp-mynt-tst.kaas.nonprd.k8s.ah.technology/'
   - key: url-ledger-proxy
-    value: ""
+    value: 'https://mynt-loyalty-ledger-proxy-ebt-cndp-mynt-tst.kaas.nonprd.k8s.ah.technology/'
   - key: url-reward-exchange
-    value: ""
+    value: 'https://mynt-loyalty-reward-and-exchange-tst.kaas.nonprd.k8s.ah.technology/'
   - key: url-programs
-    value: ""
+    value: 'https://mynt-loyalty-programs-ebt-cndp-mynt-tst.kaas.nonprd.k8s.ah.technology/'
   - key: url-jwt
-    value: ""
+    value: 'https://mynt-jks-mock-ebt-cndp-mynt-tst.kaas.nonprd.k8s.ah.technology/'
   - key: url-knox-service
-    value: ""
+    value: 'https://knox-platform-api-gateway-tst.kaas.nonprd.k8s.ah.technology'
   - key: memberID
-    value: ""
+    value: '582'
   - key: householdID
-    value: ""
+    value: '58282'
   - key: externalID
-    value: ""
+    value: 6FAD11D541037340AA8E627B7C2CAF6ABB15529E6B718DD49BF6A718BBDFC0AC
   - key: cardID
-    value: ""
+    value: 0451000582063
   - key: lockKey
-    value: ""
+    value: ''
   - key: invitation
-    value: ""
+    value: ''
   - key: X-Sub-Merchant-Id
-    value: ""
+    secret: true
+    source:
+      provider: postman
+      postman:
+        type: cloud
+        secretId: 6e5aec87-8fa0-4d85-9b65-f34e31ef5aa6
+        vaultId: bea0e6f7-a010-4295-b155-3c0898ec279a
   - key: CampaignID
-    value: ""
+    value: Campaign_Updated
 color: 180
